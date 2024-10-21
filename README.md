@@ -56,10 +56,10 @@ sequenceDiagram
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Should transient state be represented in a database diagram? Why, or why not?
-   > Your answer here
+   > Yes you should include the Transient State module in the Database Diagrams because when certain eventListeners are invoked. they will have to eventually invoker a function that sets the transient state to the value of the selection, which has to be shown in the diagram.
 2. In the **FoodTruck** module, you are **await**ing the invocataion of all of the component functions _(e.g. sales, veggie options, etc.)_. Why must you use the `await` keyword there? Explain what happens if you remove it.
-   > Your answer here
+   You use the await keyword here because the functions they are invoking are async. They have to be async because the functions are sending a request to an api which returns a promise until the request is fufilled. If you removed the await keywords, the return of the function would be undefined because it would try to run the whole function immediately before the promise is fufilled.
 3. When the user is making choices by selecting radio buttons, explain how that data is retained so that the **Purchase Combo** button works correctly.
-   > Your answer here
+   > When the user selects a choice by radio button, the Transient State's relevant Id (entreeId, sideId, etc.) is updated according to the value of the radio button selected, which is saved for when the purchase button is submitted so the POST request already has the values of the TransientState when it POSTs the new object in the purchases object in the API.
 4. You used the `map()` array method in the self assessment _(at least, you should have since it is a learning objective)_. Explain why that function is helpful as a replacement for a `for..of` loop.
-   > Your answer here
+   > The map() method iterates through the array and creates a new array based on the logic within the map method. This is desirable over a for of loop because if you are creating an indetical string for each object in the array you are iterating through, this can be done with less lines of code using than if you use the for...of loop. The code is shorter and cleaner, making it a lot easier for a human to read the code and understand what is going on. You also don't need an await on the map method because if you have set up the await keyword correctly in the rest of the function, the promise should be fufilled upon reaching the map method.
